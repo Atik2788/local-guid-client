@@ -10,12 +10,12 @@ export default function ContactHero() {
       <div
         className="absolute inset-0 bg-cover bg-center transform scale-105"
         style={{
-          backgroundImage: "url('')",
-        }}
+          backgroundImage: "url('/tour4.jpg')",
+        }}  
       />
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/70" />
+      <div className="absolute inset-0 bg-black/50" />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4">
