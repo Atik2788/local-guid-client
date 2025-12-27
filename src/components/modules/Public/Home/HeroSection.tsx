@@ -7,10 +7,10 @@ export default function HeroSection() {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-            Discover Authentic Local Experiences
+            Experience Places Like a Local
           </h1>
           <p className="text-lg md:text-xl text-gray-600 mb-8">
-            Connect with passionate local guides and explore hidden gems in destinations around the world
+           Meet passionate local guides and discover hidden gems worldwide
           </p>
 
           {/* Search Bar */}

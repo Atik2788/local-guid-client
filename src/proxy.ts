@@ -22,7 +22,9 @@ export async function proxy(request: NextRequest) {
     let userRole: UserRole | null = null;
     if (accessToken) {
         try {
+            
             const verifiedToken: JwtPayload | string = jwt.verify(accessToken, process.env.JWT_SECRET as string);
+            console.log("secrect:", process.env.JWT_SECRET)
 
             if (typeof verifiedToken === "string") {
                 await deleteCookie("accessToken");

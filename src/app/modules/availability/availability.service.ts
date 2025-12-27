@@ -380,7 +380,7 @@ const debugAvailability = async (guideId: string, dateStr: string, timeStr: stri
       dateConverted: checkDate.toISOString(),
       timeProvided: timeStr,
     },
-    allSlotsForThisDate: allSlotsForDate.map(slot => ({
+    allSlotsForThisDate: allSlotsForDate.map((slot: { _id: any; specificDate: any; startTime: any; endTime: any; isAvailable: any; todaysTourist: any; }) => ({
       id: slot._id,
       specificDate: slot.specificDate,
       startTime: slot.startTime,

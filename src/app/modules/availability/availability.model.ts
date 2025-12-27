@@ -1,4 +1,4 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model, Document } from 'mongoose';
 import { IAvailability } from './availability.interface';
 
 const AvailabilitySchema = new Schema<IAvailability>(
@@ -110,40 +110,44 @@ function calculateDuration(startTime: string, endTime: string): number {
   return (end.hour * 60 + end.min) - (start.hour * 60 + start.min);
 }
 
-// Auto-calculate timeOfDay and durationMins before save
-AvailabilitySchema.pre('save', function (next) {
-  // Convert times to 12-hour format with AM/PM if they're in 24-hour format
+
+// Middleware
+
+AvailabilitySchema.pre<Document & IAvailability>('save', async function () {
+  // Convert times to 12-hour format
   if (this.startTime && !this.startTime.includes('AM') && !this.startTime.includes('PM')) {
     this.startTime = convertTo12HourFormat(this.startTime);
   }
   if (this.endTime && !this.endTime.includes('AM') && !this.endTime.includes('PM')) {
     this.endTime = convertTo12HourFormat(this.endTime);
   }
-  
-  // Calculate timeOfDay from startTime
+
+  // Calculate timeOfDay
   if (!this.timeOfDay) {
     this.timeOfDay = getTimeOfDay(this.startTime) as any;
   }
-  
-  // Calculate duration if not provided
+
+  // Calculate duration
   if (!this.durationMins) {
     this.durationMins = calculateDuration(this.startTime, this.endTime);
   }
-  
-  // Validation: specificDate must be within next 7 days
+
+  // Validate specificDate within next 7 days
   const today = new Date();
   today.setHours(0, 0, 0, 0);
   const maxDate = new Date(today);
   maxDate.setDate(maxDate.getDate() + 7);
-  
+
   const checkDate = new Date(this.specificDate);
   checkDate.setHours(0, 0, 0, 0);
-  
+
   if (checkDate < today || checkDate > maxDate) {
-    next(new Error('Availability can only be created within next 7 days'));
+    throw new Error('Availability can only be created within next 7 days');
   }
-  
-  next();
 });
 
-export const Availability = model<IAvailability>('Availability', AvailabilitySchema);
+
+export const Availability = model<IAvailability>(
+  'Availability',
+  AvailabilitySchema
+);

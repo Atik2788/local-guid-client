@@ -4,13 +4,13 @@ import { MapPin, Users, Globe, Award } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section className="relative bg-gradient-to-br from-primary/5 via-primary/10 to-background py-20 overflow-hidden">
+    <section className="relative from-primary/5 via-primary/10 to-background py-20 overflow-hidden">
       <div className="absolute inset-0 bg-grid-pattern opacity-5" />
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center space-y-6">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900">
-            Discover Authentic Local Experiences
+            Experience Places Like a Local
           </h1>
           <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
             We connect curious travelers with passionate local guides who share their cities through unique, personalized tours.
