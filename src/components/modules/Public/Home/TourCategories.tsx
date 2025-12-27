@@ -10,19 +10,6 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
-// const categories = [
-//   { value: "FOOD", label: "Food & Culinary" },
-//   { value: "HISTORY", label: "History & Heritage" },
-//   { value: "ADVENTURE", label: "Adventure" },
-//   { value: "ART", label: "Art & Culture" },
-//   { value: "NIGHTLIFE", label: "Nightlife" },
-//   { value: "SHOPPING", label: "Shopping" },
-//   { value: "PHOTOGRAPHY", label: "Photography" },
-//   { value: "NATURE", label: "Nature & Wildlife" },
-//   { value: "CULTURE", label: "Cultural" },
-//   { value: "OTHER", label: "Other" },
-// ];
-
 const categories = [
   {
     icon: Utensils,
@@ -84,33 +71,35 @@ const categories = [
 
 export default function TourCategories() {
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section className="py-20 bg-gradient-to-br from-[#c3f1ff] via-[#1e91b3] to-[#107e6b]">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
             Explore by Category
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-white/80 max-w-2xl mx-auto text-lg">
             Find the perfect tour that matches your interests
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        {/* Categories Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           {categories.map((category, index) => (
             <Link
               key={index}
               href={`/explore?category=${category.value}`}
-              className="group bg-white rounded-2xl p-6 hover:shadow-xl transition text-center"
+              className="group bg-white/10 backdrop-blur-md rounded-2xl p-6 hover:scale-105 transition-transform duration-300 shadow-lg text-center"
             >
               <div
-                className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${category.color} mb-4 group-hover:scale-110 transition`}
+                className={`inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br ${category.color} mb-4 group-hover:scale-110 transition`}
               >
-                <category.icon className="h-8 w-8 text-white" />
+                <category.icon className="h-10 w-10 text-white" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-1">
+              <h3 className="text-lg font-semibold text-white mb-1 group-hover:text-yellow-300 transition-colors">
                 {category.name}
               </h3>
-              <p className="text-gray-600 text-sm">{category.count} tours</p>
+              <p className="text-white/80 text-sm">{category.count} tours</p>
             </Link>
           ))}
         </div>

@@ -5,6 +5,7 @@ import { IPlatformSettings } from '@/types/settings.interface';
 
 async function PublicFooter() {
   const {data: settings } = await getPlatformSettings() 
+  console.log("settings:", settings)
   return (
     <footer className="bg-gray-900 text-gray-300">
       <div className="container mx-auto px-4 py-12">

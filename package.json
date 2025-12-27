@@ -38,6 +38,7 @@
     "dotenv": "^17.2.3",
     "ejs": "^3.1.10",
     "express": "^5.2.1",
+    "framer-motion": "^12.23.26",
     "http-status-codes": "^2.3.0",
     "jsonwebtoken": "^9.0.3",
     "lucide-react": "^0.546.0",
