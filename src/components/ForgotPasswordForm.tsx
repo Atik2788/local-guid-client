@@ -23,7 +23,7 @@ export default function ForgotPasswordForm() {
   }, [state]);
 
   return (
-    <div className="w-full max-w-md space-y-6">
+    <div className="w-full max-w-md space-y-6 p-8 rounded-2xl bg-gradient-to-b pt-28 from-[#6ab3c3] to-[#ccf3fb]">
       {/* Header */}
       <div className="text-center space-y-3">
         <div className="flex justify-center">

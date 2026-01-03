@@ -72,7 +72,7 @@ const LoginForm = ({ redirect }: { redirect?: string }) => {
                 </FieldLabel>
                 <a
                   href="/forgot-password"
-                  className="text-sm text-[#166f9c] hover:underline font-medium"
+                  className="text-sm text-gray-500 hover:underline font-medium"
                 >
                   Forgot?
                 </a>
@@ -94,9 +94,9 @@ const LoginForm = ({ redirect }: { redirect?: string }) => {
                   className="absolute inset-y-0 right-0 pr-3 flex items-center text-white hover:text-white"
                 >
                   {showPassword ? (
-                    <EyeOff className="h-5 w-5" />
-                  ) : (
                     <Eye className="h-5 w-5" />
+                  ) : (
+                    <EyeOff className="h-5 w-5" />
                   )}
                 </button>
               </div>

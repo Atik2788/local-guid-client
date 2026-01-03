@@ -4,63 +4,64 @@ import Image from "next/image";
 
 export default function SplashLoading() {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-[#EBF4FE] via-blue-500 to-[#E7812C]">
-      {/* Animated Background Pattern */}
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-[#4fd1e8] via-[#8be9fd] to-[#e6fcff]">
+      
+      {/* Ambient Background Glow */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-white/5 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-white/5 rounded-full blur-3xl animate-pulse [animation-delay:1s]"></div>
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-white/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-cyan-200/20 rounded-full blur-3xl animate-pulse [animation-delay:1.5s]" />
       </div>
 
-      {/* Main Content */}
-      <div className="relative z-10 text-center px-4">
-        {/* Logo/Icon Container */}
-        <div className="relative mb-8">
-          {/* Outer Ring - Rotating */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-32 h-32 border-4 border-white/30 border-t-white rounded-full animate-spin"></div>
-          </div>
+      {/* Main Glass Card */}
+      <div className="relative z-10 text-center px-8 py-10 rounded-3xl bg-white/10 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] border border-white/20">
+        
+        {/* Logo Area */}
+        <div className="relative mb-10 flex items-center justify-center">
           
-          {/* Middle Ring - Counter Rotating */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-24 h-24 border-4 border-white/20 border-b-white rounded-full animate-spin [animation-direction:reverse] [animation-duration:1.5s]"></div>
-          </div>
+          {/* Outer Glow */}
+          <div className="absolute w-36 h-36 rounded-full bg-white/20 blur-2xl animate-pulse" />
 
-          {/* Center Icon */}
-          <div className="relative flex items-center justify-center h-32">
-            <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl animate-pulse">
-              <Image 
-                src="/localGuide.png" 
-                width={50} 
-                height={50} 
-                alt="Local Guide Logo"
-                className="object-contain"
-              />
-            </div>
-          </div>
-        </div>
+          {/* Outer Ring */}
+          <div className="absolute w-32 h-32 border-4 border-white/30 border-t-white rounded-full animate-spin" />
+          
+          {/* Inner Ring */}
+          <div className="absolute w-24 h-24 border-4 border-white/20 border-b-white rounded-full animate-spin [animation-direction:reverse] [animation-duration:1.6s]" />
 
-        {/* Brand Name with Animation */}
-        <div className="mb-6 overflow-hidden">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 animate-fade-in">
-            Local Guide
-          </h1>
-          <div className="flex items-center justify-center gap-2 text-white/90 text-lg animate-fade-in [animation-delay:0.2s]">
-            <span>Discover</span>
-            <span className="inline-block w-1 h-1 bg-white/90 rounded-full"></span>
-            <span>Explore</span>
-            <span className="inline-block w-1 h-1 bg-white/90 rounded-full"></span>
-            <span>Experience</span>
+          {/* Center Logo */}
+          <div className="relative w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl animate-float">
+            <Image 
+              src="/localGuide.png" 
+              width={48} 
+              height={48} 
+              alt="Local Guide Logo"
+              className="object-contain"
+            />
           </div>
         </div>
 
-        {/* Loading Text */}
-        <div className="flex items-center justify-center gap-3 text-white/80 animate-fade-in [animation-delay:0.4s]">
+        {/* Brand Name */}
+        <h1 className="text-4xl md:text-5xl font-extrabold mb-3 bg-gradient-to-r from-white to-cyan-100 bg-clip-text text-transparent animate-fade-in">
+          Local Guide
+        </h1>
+
+        <div className="flex items-center justify-center gap-2 text-white/90 text-lg animate-fade-in [animation-delay:0.2s]">
+          <span>Discover</span>
+          <span className="w-1.5 h-1.5 bg-white/80 rounded-full" />
+          <span>Explore</span>
+          <span className="w-1.5 h-1.5 bg-white/80 rounded-full" />
+          <span>Experience</span>
+        </div>
+
+        {/* Loading */}
+        <div className="mt-6 flex items-center justify-center gap-3 text-white/80 animate-fade-in [animation-delay:0.4s]">
           <div className="flex gap-1">
-            <div className="w-2 h-2 bg-white rounded-full animate-bounce"></div>
-            <div className="w-2 h-2 bg-white rounded-full animate-bounce [animation-delay:0.1s]"></div>
-            <div className="w-2 h-2 bg-white rounded-full animate-bounce [animation-delay:0.2s]"></div>
+            <span className="w-2 h-2 bg-white rounded-full animate-bounce" />
+            <span className="w-2 h-2 bg-white rounded-full animate-bounce [animation-delay:0.15s]" />
+            <span className="w-2 h-2 bg-white rounded-full animate-bounce [animation-delay:0.3s]" />
           </div>
-          <span className="text-sm font-medium">Loading your adventure</span>
+          <span className="text-sm font-medium tracking-wide">
+            Loading your adventure
+          </span>
         </div>
       </div>
 
@@ -69,7 +70,7 @@ export default function SplashLoading() {
         @keyframes fade-in {
           from {
             opacity: 0;
-            transform: translateY(10px);
+            transform: translateY(12px);
           }
           to {
             opacity: 1;
@@ -77,12 +78,12 @@ export default function SplashLoading() {
           }
         }
 
-        @keyframes progress {
-          0% {
-            width: 0%;
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0);
           }
-          100% {
-            width: 100%;
+          50% {
+            transform: translateY(-6px);
           }
         }
 
@@ -91,8 +92,8 @@ export default function SplashLoading() {
           opacity: 0;
         }
 
-        .animate-progress {
-          animation: progress 2s ease-in-out infinite;
+        .animate-float {
+          animation: float 2.5s ease-in-out infinite;
         }
       `}</style>
     </div>

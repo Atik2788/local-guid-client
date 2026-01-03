@@ -162,7 +162,7 @@ const DashboardNavbarContent = ({
     };
   }, []);
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-gradient-to-b from-[#6ab3c3] to-white  backdrop-blur-xl supports-backdrop-filter:bg-background/80 shadow-sm ">
+    <header className="sticky top-0 z-40 w-full  shadow-md ">
       <div className="flex h-16 items-center justify-between gap-4 px-4 md:px-6">
         {/* Mobile Menu Toggle */}
         <Sheet open={isMobile && isOpen} onOpenChange={setIsOpen}>

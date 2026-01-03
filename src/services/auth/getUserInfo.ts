@@ -25,7 +25,7 @@ export const getUserInfo = async (): Promise<UserInfo | any> => {
             }
 
             const verifiedToken = jwt.verify(accessToken, process.env.JWT_SECRET as string) as JwtPayload;
-            console.log("secrect:", process.env.JWT_SECRET)
+            // console.log("secrect:", process.env.JWT_SECRET)
             
             userInfo = {
                 name: verifiedToken.name || "Unknown User",
