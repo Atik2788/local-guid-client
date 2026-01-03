@@ -25,33 +25,40 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="py-16 md:py-24 bg-gray-50">
+    <section className="py-20 bg-gradient-to-tr from-[#166f9c] via-[#1e91b3] to-[#43c0e7]">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
             How It Works
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Four simple steps to your perfect local experience
+          <p className="text-white/80 max-w-2xl mx-auto text-lg">
+            Follow these four simple steps to plan your perfect local experience
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+        {/* Steps Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 max-w-6xl mx-auto">
           {steps.map((step, index) => (
-            <div key={index} className="relative">
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
-                  <step.icon className="h-8 w-8 text-primary" />
-                </div>
-                <div className="absolute top-8 left-1/2 w-full h-0.5 bg-primary/20 -z-10 hidden lg:block last:hidden" />
-                <div className="absolute top-2 -right-4 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm">
-                  {index + 1}
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  {step.title}
-                </h3>
-                <p className="text-gray-600">{step.description}</p>
+            <div
+              key={index}
+              className="bg-white/10 backdrop-blur-md rounded-2xl p-8 flex flex-col items-center text-center hover:scale-105 transition-transform duration-300 shadow-lg"
+            >
+              {/* Step Icon */}
+              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-white/20 mb-6">
+                <step.icon className="h-10 w-10 text-white" />
               </div>
+
+              {/* Step Number */}
+              <div className="w-10 h-10 rounded-full bg-white text-[#166f9c] font-bold flex items-center justify-center mb-4">
+                {index + 1}
+              </div>
+
+              {/* Step Title */}
+              <h3 className="text-xl font-semibold text-white mb-2">{step.title}</h3>
+
+              {/* Step Description */}
+              <p className="text-white/80">{step.description}</p>
             </div>
           ))}
         </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { Search, MapPin, Calendar, Users } from "lucide-react";
+import { Search } from "lucide-react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -20,19 +20,44 @@ export default function ExploreHero() {
   };
 
   return (
-    <section className="relative bg-gradient-to-br from-primary/10 via-blue-50 to-indigo-50 py-16 md:py-20">
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto text-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Discover Authentic Local Experiences
+    <section className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Desktop Image */}
+      <div
+        className="hidden md:block absolute inset-0 w-full h-full bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/tourPic.jpg')",
+        }}
+      ></div>
+
+      {/* Mobile Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="md:hidden absolute inset-0 w-full h-full object-cover"
+      >
+        <source src="/video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      {/* Black Overlay */}
+      <div className="absolute inset-0 bg-black/40"></div>
+
+      {/* Content */}
+      <div className="container mx-auto px-4 relative z-10 text-center">
+        {/* Heading */}
+        <div className="max-w-4xl mx-auto mb-8">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg">
+            Experience Places Like a Local
           </h1>
-          <p className="text-lg text-gray-600">
-            Connect with verified local guides and explore hidden gems
+          <p className="text-lg text-white/90 drop-shadow-md">
+            Meet passionate local guides and discover hidden gems worldwide
           </p>
         </div>
 
         {/* Search Bar */}
-        <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg p-4 md:p-6">
+        <div className="max-w-3xl mx-auto bg-white/90 backdrop-blur-md rounded-2xl shadow-lg p-4 md:p-6">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
             {/* Search Input */}
             <div className="md:col-span-9">
@@ -51,7 +76,6 @@ export default function ExploreHero() {
               </div>
             </div>
 
-        
             {/* Search Button */}
             <div className="md:col-span-3 flex items-end">
               <Button
@@ -66,22 +90,22 @@ export default function ExploreHero() {
         </div>
 
         {/* Quick Stats */}
-        <div className="max-w-5xl mx-auto mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="max-w-5xl mx-auto mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 text-white">
           <div className="text-center">
-            <div className="text-2xl md:text-3xl font-bold text-primary">500+</div>
-            <div className="text-sm text-gray-600">Tours Available</div>
+            <div className="text-2xl md:text-3xl font-bold text-[#ffdd57]">300+</div>
+            <div className="text-sm text-white/80">Tours Available</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl md:text-3xl font-bold text-primary">200+</div>
-            <div className="text-sm text-gray-600">Local Guides</div>
+            <div className="text-2xl md:text-3xl font-bold text-[#ffdd57]">100+</div>
+            <div className="text-sm text-white/80">Local Guides</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl md:text-3xl font-bold text-primary">50+</div>
-            <div className="text-sm text-gray-600">Cities</div>
+            <div className="text-2xl md:text-3xl font-bold text-[#ffdd57]">60+</div>
+            <div className="text-sm text-white/80">Cities</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl md:text-3xl font-bold text-primary">10k+</div>
-            <div className="text-sm text-gray-600">Happy Tourists</div>
+            <div className="text-2xl md:text-3xl font-bold text-[#ffdd57]">5k+</div>
+            <div className="text-sm text-white/80">Happy Tourists</div>
           </div>
         </div>
       </div>

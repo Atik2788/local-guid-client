@@ -29,7 +29,7 @@ export default async function AllGuidesPage({ searchParams }: AllGuidesPageProps
   ]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+    <div className="min-h-screen pt-24 bg-gradient-to-b from-[#6ab3c3] to-white">
       <AllGuidesContent
         guides={guidesResult.data || []}
         pagination={guidesResult.meta}

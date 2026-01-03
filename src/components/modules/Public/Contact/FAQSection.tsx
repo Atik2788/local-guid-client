@@ -1,32 +1,38 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, HelpCircle } from "lucide-react";
+import { ChevronDown, HelpCircle, MessageCircle } from "lucide-react";
 
 const faqs = [
   {
-    question: "How do I book a tour?",
-    answer: "Browse our tours, select your preferred date and time, and complete the booking process. You'll receive instant confirmation via email.",
+    question: "How does LocalGuide work?",
+    answer:
+      "LocalGuide connects travelers with verified local guides. You choose a destination, select a guide, customize your experience, and book securely through our platform.",
   },
   {
-    question: "Can I cancel or reschedule my booking?",
-    answer: "Yes! You can cancel or reschedule up to 24 hours before your tour starts for a full refund. Check our cancellation policy for details.",
+    question: "Is it safe to book a local guide?",
+    answer:
+      "Yes. Every guide is identity-verified, reviewed by travelers, and monitored continuously to ensure safety, professionalism, and quality service.",
   },
   {
-    question: "How do I become a guide?",
-    answer: "Click on 'Become a Guide' in the navigation menu, fill out the application form, and our team will review your profile within 2-3 business days.",
+    question: "Can I customize my tour experience?",
+    answer:
+      "Absolutely. You can discuss your interests directly with the guide before booking and tailor the tour to match your schedule, pace, and preferences.",
   },
   {
-    question: "Are the guides verified?",
-    answer: "Absolutely! All our guides go through a thorough verification process including background checks, interviews, and trial tours.",
+    question: "What happens if my plans change?",
+    answer:
+      "Most tours offer flexible cancellation or rescheduling options. Exact policies are shown before booking so you can plan with confidence.",
   },
   {
-    question: "What payment methods do you accept?",
-    answer: "We accept all major credit cards, debit cards, and popular digital payment methods including bKash, Nagad, and Rocket.",
+    question: "How do payments and pricing work?",
+    answer:
+      "All payments are handled securely through LocalGuide. Prices are transparent with no hidden fees, and guides receive fair compensation for their services.",
   },
   {
-    question: "Is there a minimum group size?",
-    answer: "No, we offer both private and group tours. You can book a tour even if you're traveling solo.",
+    question: "How can I join as a local guide?",
+    answer:
+      "You can apply through our ‘Become a Guide’ page. After profile review and verification, you can start offering tours and earning on your own terms.",
   },
 ];
 
@@ -34,58 +40,93 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-gradient-to-b from-[#88c5d2] to-white">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
+
+          {/* Header */}
+          <div className="text-center mb-14">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-4">
               <HelpCircle className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-primary">FAQ</span>
+              <span className="text-sm font-medium text-primary">
+                Help Center
+              </span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Frequently Asked Questions
+
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+              Got Questions? We’ve Got Answers
             </h2>
             <p className="text-lg text-gray-600">
-              Quick answers to common questions
+              Everything you need to know about using LocalGuide
             </p>
           </div>
 
-          <div className="space-y-4">
-            {faqs.map((faq, index) => (
-              <div
-                key={index}
-                className="border border-gray-200 rounded-xl overflow-hidden hover:border-primary/50 transition-colors"
-              >
-                <button
-                  onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                  className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
-                >
-                  <span className="font-semibold text-gray-900 pr-4">
-                    {faq.question}
-                  </span>
-                  <ChevronDown
-                    className={`w-5 h-5 text-gray-500 flex-shrink-0 transition-transform ${
-                      openIndex === index ? "rotate-180" : ""
+          {/* FAQ List */}
+          <div className="space-y-5">
+            {faqs.map((faq, index) => {
+              const isOpen = openIndex === index;
+
+              return (
+                <div
+                  key={index}
+                  className={`rounded-2xl border transition-all duration-300
+                    ${
+                      isOpen
+                        ? "border-primary/40 shadow-lg bg-white"
+                        : "border-gray-200 bg-white hover:shadow-md"
                     }`}
-                  />
-                </button>
-                {openIndex === index && (
-                  <div className="px-6 pb-4 text-gray-600 leading-relaxed">
-                    {faq.answer}
+                >
+                  <button
+                    onClick={() =>
+                      setOpenIndex(isOpen ? null : index)
+                    }
+                    className="w-full px-6 py-5 flex items-center justify-between text-left group"
+                  >
+                    <span className="font-semibold text-gray-900 pr-4 text-base md:text-lg">
+                      {faq.question}
+                    </span>
+
+                    <div
+                      className={`w-8 h-8 rounded-full flex items-center justify-center
+                        transition-transform duration-300
+                        ${
+                          isOpen
+                            ? "bg-primary text-white rotate-180"
+                            : "bg-gray-100 text-gray-600 group-hover:bg-primary/10"
+                        }`}
+                    >
+                      <ChevronDown className="w-5 h-5" />
+                    </div>
+                  </button>
+
+                  <div
+                    className={`grid transition-all duration-300 ease-in-out
+                      ${
+                        isOpen
+                          ? "grid-rows-[1fr] opacity-100"
+                          : "grid-rows-[0fr] opacity-0"
+                      }`}
+                  >
+                    <div className="overflow-hidden px-6 pb-5 text-gray-600 leading-relaxed">
+                      {faq.answer}
+                    </div>
                   </div>
-                )}
-              </div>
-            ))}
+                </div>
+              );
+            })}
           </div>
 
-          <div className="mt-12 text-center p-8 bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl">
-            <p className="text-lg text-gray-900 font-medium mb-2">
-              Still have questions?
+          {/* Bottom CTA */}
+          <div className="mt-14 text-center rounded-2xl p-10 bg-gradient-to-br from-primary/5 to-primary/10">
+            <MessageCircle className="w-8 h-8 text-primary mx-auto mb-4" />
+            <p className="text-xl font-semibold text-gray-900 mb-2">
+              Didn’t find what you’re looking for?
             </p>
-            <p className="text-gray-600">
-              Our support team is here to help. Reach out anytime!
+            <p className="text-gray-600 max-w-md mx-auto">
+              Our support team is always ready to help you with personalized assistance.
             </p>
           </div>
+
         </div>
       </div>
     </section>

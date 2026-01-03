@@ -3,7 +3,7 @@
 import { zodValidator } from "@/lib/zodValidator";
 import { contactValidationSchema } from "@/zod/contact.validation";
 
-const BACKEND_API_URL = process.env.NEXT_PUBLIC_BASE_API_URL || "http://localhost:5000/api";
+const BACKEND_API_URL = process.env.NEXT_PUBLIC_BASE_API_URL || "https://local-guid-server.onrender.com/api";
 
 export async function submitContact(_prevState: any, formData: FormData) {
   try {

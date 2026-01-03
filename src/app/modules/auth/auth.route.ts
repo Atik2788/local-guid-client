@@ -10,6 +10,7 @@ import passport from "passport";
 
 const router = Router()
 
+// console.log("JWT_SECRET:", process.env.JWT_SECRET);
 
 router.post('/login', AuthController.userLogin)
 

@@ -19,10 +19,10 @@ const LoginForm = ({ redirect }: { redirect?: string }) => {
   }, [state]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#166f9c] p-6">
+    <div className="min-h-screen flex items-center justify-center p-6">
       <form
         action={formAction}
-        className="w-full max-w-lg bg-[#2f9cd3] rounded-2xl shadow-xl p-8 space-y-6 animate-fadeIn"
+        className="w-full max-w-lg bg-gradient-to-b pt-28 from-[#6ab3c3] to-[#ccf3fb] rounded-2xl shadow-xl p-8 space-y-6 animate-fadeIn"
       >
         {redirect && <input type="hidden" name="redirect" value={redirect} />}
 
@@ -33,7 +33,7 @@ const LoginForm = ({ redirect }: { redirect?: string }) => {
               <Compass className="h-7 w-7 text-[#1d6a8d]" />
             </div>
           </div>
-          <h2 className="text-3xl font-extrabold text-white">
+          <h2 className="text-3xl font-extrabold text-black">
             Welcome Back
           </h2>
           <p className="text-gray-600">Sign in to continue your journey</p>
@@ -72,7 +72,7 @@ const LoginForm = ({ redirect }: { redirect?: string }) => {
                 </FieldLabel>
                 <a
                   href="/forgot-password"
-                  className="text-sm text-[#166f9c] hover:underline font-medium"
+                  className="text-sm text-gray-500 hover:underline font-medium"
                 >
                   Forgot?
                 </a>
@@ -94,9 +94,9 @@ const LoginForm = ({ redirect }: { redirect?: string }) => {
                   className="absolute inset-y-0 right-0 pr-3 flex items-center text-white hover:text-white"
                 >
                   {showPassword ? (
-                    <EyeOff className="h-5 w-5" />
-                  ) : (
                     <Eye className="h-5 w-5" />
+                  ) : (
+                    <EyeOff className="h-5 w-5" />
                   )}
                 </button>
               </div>

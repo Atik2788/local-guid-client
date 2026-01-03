@@ -35,14 +35,14 @@ const DashboardSidebarContent = ({
   })).filter(section => section.items.length > 0);
 
   return (
-    <div className="hidden md:flex h-full w-64 flex-col border-r bg-gradient-to-b from-card to-card/95">
+    <div className="hidden md:flex h-full w-64 flex-col border-r bg-gradient-to-b from-[#6ab3c3] to-[#d6f3f8]">
       {/* Logo/Brand */}
-      <div className="flex h-16 items-center border-b px-6 bg-card/50 backdrop-blur-sm">
+      <div className="flex h-16 items-center px-6  shadow-md">
         <Link href={dashboardHome} className="flex items-center space-x-2 group">
           <div className="">
            <Image src={'/localGuide.png'} alt="localGuide" width={50} height={50} />
           </div>
-          <span className="text-lg font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+          <span className="text-lg font-bold  text-[#0b4a58]">
             Local Guide
           </span>
         </Link>

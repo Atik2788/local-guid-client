@@ -162,7 +162,7 @@ const DashboardNavbarContent = ({
     };
   }, []);
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-background/80 backdrop-blur-xl supports-backdrop-filter:bg-background/80 shadow-sm">
+    <header className="sticky top-0 z-40 w-full  shadow-md ">
       <div className="flex h-16 items-center justify-between gap-4 px-4 md:px-6">
         {/* Mobile Menu Toggle */}
         <Sheet open={isMobile && isOpen} onOpenChange={setIsOpen}>
@@ -208,7 +208,7 @@ const DashboardNavbarContent = ({
                 )}
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-80 p-0">
+            <DropdownMenuContent align="end" className="w-80 p-0 ">
               {/* Header */}
               <div className="flex items-center justify-between p-4 border-b">
                 <div>

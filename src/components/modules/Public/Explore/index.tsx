@@ -25,7 +25,7 @@ export default function ExploreContent({ tours, pagination }: ExploreContentProp
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-b pt-28 from-[#6ab3c3] to-white">
       <div className="container mx-auto px-4 py-8">
         <div className="flex gap-8">
           {/* Desktop Sidebar */}

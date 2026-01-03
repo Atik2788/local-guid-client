@@ -31,7 +31,7 @@ export const createAdmin = async () => {
       passwordHash: isHashPassword,
       isVerified: true,
       isActive: IsActive.ACTIVE,
-      phoneNumber: '+8801791732611',
+      phoneNumber: '+880303012788',
       location: 'Dhaka, Bangladesh',
       auths: [authProvider],
     };

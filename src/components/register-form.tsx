@@ -29,14 +29,14 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#228dc3] p-6">
+    <div className="min-h-screen flex items-center justify-center p-6">
       <form
         action={handleSubmit}
-        className="w-full max-w-lg bg-[#166f9c] rounded-2xl shadow-xl p-8 space-y-6"
+        className="w-full max-w-lg  rounded-2xl shadow-xl p-8 space-y-12"
       >
         {/* Role Selection */}
         <div className="space-y-3">
-          <FieldLabel className="text-base font-semibold text-white">
+          <FieldLabel className="text-base font-semibold text-black">
             I want to join as
           </FieldLabel>
           <div className="grid grid-cols-2 gap-4">
@@ -138,7 +138,7 @@ const RegisterForm = () => {
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600"
                 >
-                  {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
+                  {!showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                 </button>
               </div>
               <InputFieldError field="password" state={state} />
@@ -160,7 +160,7 @@ const RegisterForm = () => {
                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                   className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600"
                 >
-                  {showConfirmPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
+                  {!showConfirmPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                 </button>
               </div>
               <InputFieldError field="confirmPassword" state={state} />
@@ -168,7 +168,7 @@ const RegisterForm = () => {
           </div>
 
           {/* Role-specific Info */}
-          <div className="mt-4 p-4 rounded-lg bg-blue-100 border border-blue-100">
+          <div className="mt-4 p-4 rounded-lg bg-[#c3e9fc] border border-blue-100">
             <div className="flex items-start gap-3">
               <Compass className="h-5 w-5 text-[#166f9c] mt-0.5 shrink-0" />
               <div className="text-sm text-blue-900">
@@ -243,7 +243,7 @@ const RegisterForm = () => {
               </a>
             </FieldDescription>
 
-            <p className="text-xs text-center text-gray-200">
+            <p className="text-xs text-center text-gray-500">
               By creating an account, you agree to our{" "}
               <a
                 href="/terms"

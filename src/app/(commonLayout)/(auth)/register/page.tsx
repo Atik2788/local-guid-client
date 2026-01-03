@@ -10,12 +10,12 @@ import {
 const RegisterPage = () => {
   return (
     <>
-      <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10 ">
+      <div className="flex min-h-svh w-full mt-24 items-center justify-center p-6 md:p-10 ">
         <div className="w-full max-w-4xl ">
-          <Card className="bg-[#34799b] ">
+          <Card className="bg-gradient-to-b from-[#6ab3c3] to-white">
             <CardHeader >
-              <CardTitle className="text-white">Create an account</CardTitle>
-              <CardDescription className="text-gray-300">
+              <CardTitle className="text-balck">Create an account</CardTitle>
+              <CardDescription className="text-gray-600">
                 Enter your information below to create your account
               </CardDescription>
             </CardHeader>

@@ -25,13 +25,25 @@ export default function PopularTours({ tours }: PopularToursProps) {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-white">
-      <div className="container mx-auto px-4">
+    <section className="relative py-20">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/tour2.jpg" 
+          alt="Popular Tours Background"
+          fill
+          className="object-cover object-center"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/40"></div> {/* overlay */}
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 drop-shadow-lg">
             Top-Rated Local Tours
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-gray-200 max-w-2xl mx-auto">
             Explore the most sought-after tours with our expert local guides
           </p>
         </div>
@@ -71,38 +83,33 @@ export default function PopularTours({ tours }: PopularToursProps) {
 
                   {/* Content */}
                   <div className="absolute bottom-0 left-0 right-0 p-6 z-20 text-white">
-                    {/* Location */}
-                    <div className="flex items-center gap-2 mb-2">
-                      <MapPin className="h-4 w-4" />
-                      <span className="text-sm">{tour.city}, {tour.country}</span>
-                      {/* Rating & Price */}
-                      <div className="flex items-center justify-between">
-                        {tour.reviewCount && tour.reviewCount > 0 ? (
-                          <div className="flex items-center gap-1">
-                            <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                            <span className="text-sm font-semibold">
-                              {tour.averageRating?.toFixed(1)}
-                            </span>
-                            <span className="text-sm text-white/80">
-                              ({tour.reviewCount})
-                            </span>
-                          </div>
-                        ) : (
-                          <span className="text-sm text-white/80">New Tour</span>
-                        )}
-
-
+                    <div className="flex items-center gap-2 mb-2 justify-between">
+                      {/* Location */}
+                      <div className="flex items-center gap-2">
+                        <MapPin className="h-4 w-4" />
+                        <span className="text-sm">{tour.city}, {tour.country}</span>
                       </div>
+
+                      {/* Rating */}
+                      {tour.reviewCount && tour.reviewCount > 0 ? (
+                        <div className="flex items-center gap-1">
+                          <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                          <span className="text-sm font-semibold">
+                            {tour.averageRating?.toFixed(1)}
+                          </span>
+                          <span className="text-sm text-white/80">
+                            ({tour.reviewCount})
+                          </span>
+                        </div>
+                      ) : (
+                        <span className="text-sm text-white/80">New Tour</span>
+                      )}
                     </div>
                     
                     {/* Title */}
                     <h3 className="text-xl font-bold mb-3 line-clamp-2">
                       {tour.title}
                     </h3>
-                    
-                   
-
-
                   </div>
                 </div>
               </Link>
@@ -110,7 +117,7 @@ export default function PopularTours({ tours }: PopularToursProps) {
           </div>
         ) : (
           <div className="text-center py-12">
-            <p className="text-gray-500">No top-rated tours available yet.</p>
+            <p className="text-red-400">No top-rated tours available yet.</p>
           </div>
         )}
 

@@ -31,7 +31,7 @@ export const seedPlatformSettings = async () => {
       general: {
         platformName: 'LocalGuide',
         supportEmail: 'support@localguide.com',
-        supportPhone: '+8801791732611',
+        supportPhone: '+8801303012788',
         maintenanceMode: false,
         allowNewGuideRegistrations: true,
       },
@@ -46,10 +46,10 @@ export const seedPlatformSettings = async () => {
 
       contacts: {
         address: 'Dhaka, Bangladesh',
-        phone: '+8801791732611',
+        phone: '+8801303012788',
         email: 'contact@localguide.com',
         supportEmail: 'support@localguide.com',
-        supportPhone: '+8801791732611',
+        supportPhone: '+8801303012788',
         businessHours: 'Saturday - Thursday: 9:00 AM - 6:00 PM',
       },
 
