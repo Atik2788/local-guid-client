@@ -43,7 +43,8 @@
 //       <PaymentContent booking={booking} user={user} />
 //     </div>
 //   );
-// }
+// } 
+// ##########
 
 
 
