@@ -11,11 +11,15 @@ import { toast } from "sonner";
 import InputFieldError from "./shared/InputFieldError";
 import { useRouter } from "next/navigation";
 
+// interface ResetPasswordFormProps {
+//   params: any
+// } ##########
+
 interface ResetPasswordFormProps {
-  params: any
+  token: string
 }
 
-export default function ResetPasswordForm({ params }: ResetPasswordFormProps) {
+export default function ResetPasswordForm({ token }: ResetPasswordFormProps) {
   const router = useRouter();
   const [state, formAction, isPending] = useActionState(
     resetPasswordWithToken,
@@ -71,8 +75,8 @@ export default function ResetPasswordForm({ params }: ResetPasswordFormProps) {
 
       {/* Form */}
       <form action={formAction} className="space-y-4">
-        <input type="hidden" name="token" value={params.token} />
-        <input type="id" name="id" value={params.id} />
+        {/* <input type="hidden" name="token" value={params.token} /> */}     {/* ##########  */}
+        {/* <input type="id" name="id" value={params.id} /> */}  {/* ########## */}
 
         <div className="space-y-2">
           <Label htmlFor="newPassword">New Password</Label>
