@@ -64,12 +64,9 @@ async function getBookingDetails(bookingId: string) {
   }
 }
 
-export default async function PaymentPage({
-  params,
-}: {
-  params: { bookingId: string };
-}) {
-  const { bookingId } = params;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default async function PaymentPage(props: any) {
+  const { bookingId } = props.params as { bookingId: string };
 
   const booking = await getBookingDetails(bookingId);
   const user = await getUserInfo();
