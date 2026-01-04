@@ -26,7 +26,7 @@ async function getBookingDetails(bookingId: string) {
 }
 
 export default async function PaymentPage({ params }: PaymentPageProps) {
-  const { bookingId } = await params;
+  const { bookingId } =  params;
   const booking = await getBookingDetails(bookingId);
   const user = await getUserInfo()
   if (!booking) {
