@@ -30,8 +30,6 @@
 // }
 // ##########
 
-
-
 import ResetPasswordForm from "@/components/ResetPasswordForm";
 import { Metadata } from "next";
 import { redirect } from "next/navigation";
@@ -41,15 +39,13 @@ export const metadata: Metadata = {
   description: "Create a new password for your LocalGuide account",
 };
 
-interface ResetPasswordPageProps {
+export default async function ResetPasswordPage({
+  searchParams,
+}: {
   searchParams?: {
     token?: string;
   };
-}
-
-export default async function ResetPasswordPage({
-  searchParams,
-}: ResetPasswordPageProps) {
+}) {
   const token = searchParams?.token;
 
   if (!token) {
