@@ -30,6 +30,10 @@
 // }
 // ##########
 
+
+
+
+
 import ResetPasswordForm from "@/components/ResetPasswordForm";
 import { Metadata } from "next";
 import { redirect } from "next/navigation";
@@ -42,11 +46,12 @@ export const metadata: Metadata = {
 export default async function ResetPasswordPage({
   searchParams,
 }: {
-  searchParams?: {
+  searchParams?: Promise<{
     token?: string;
-  };
+  }>;
 }) {
-  const token = searchParams?.token;
+  const params = await searchParams;
+  const token = params?.token;
 
   if (!token) {
     redirect("/forgot-password");
