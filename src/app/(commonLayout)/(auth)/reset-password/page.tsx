@@ -41,11 +41,15 @@ export const metadata: Metadata = {
   description: "Create a new password for your LocalGuide account",
 };
 
+interface ResetPasswordPageProps {
+  searchParams?: {
+    token?: string;
+  };
+}
+
 export default async function ResetPasswordPage({
   searchParams,
-}: {
-  searchParams?: { token?: string };
-}) {
+}: ResetPasswordPageProps) {
   const token = searchParams?.token;
 
   if (!token) {
